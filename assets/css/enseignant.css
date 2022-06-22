@@ -1,0 +1,863 @@
+/*---------------------------------------------------------*\
+                RESET & ANIMATION APPARITION
+\*---------------------------------------------------------*/
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.reveal {
+  -webkit-animation: flash .3s linear;
+          animation: flash .3s linear;
+}
+
+@-webkit-keyframes flash {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes flash {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@-webkit-keyframes form-search {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 30px;
+  }
+}
+
+@keyframes form-search {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 30px;
+  }
+}
+
+body {
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding-top: 50px;
+  background: #f3f3ef;
+}
+
+/*--------------------------------------------*\
+                    HEADER
+\*--------------------------------------------*/
+header {
+  width: 100%;
+  height: 50px;
+  padding: 0 40px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  /*--------------- TOGGLE ---------------*/
+  /*--------------- LOGO ---------------*/
+  /*--------------- MENU ---------------*/
+  /*--------------- AVATAR ---------------*/
+  /*--------------- CONTAINER POPUP SEARCH ---------------*/
+  /*---------------SIDEBAR ---------------*/
+}
+
+header .container-toggle {
+  display: none;
+  height: 50px;
+  font-size: 20px;
+  float: left;
+  margin-right: 10px;
+  color: #151111;
+}
+
+header .container-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  margin-right: 8px;
+  float: left;
+}
+
+header .container-logo a {
+  text-decoration: none;
+}
+
+header .container-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 45px;
+  float: left;
+}
+
+header .container-menu .container--navbars li {
+  display: inline-block;
+  list-style: none;
+}
+
+header .container-menu .container--navbars li a {
+  text-decoration: none;
+  padding: 5px;
+  color: #151111;
+}
+
+header .container-menu .container--navbars li a.active, header .container-menu .container--navbars li a:hover {
+  color: #3F51B5;
+}
+
+header .container-groups {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  float: right;
+  /*------ ICONS -------*/
+  /*-------- AVATAR-------*/
+}
+
+header .container-groups .group-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  margin-right: 10px;
+  border-right: 1px solid #ffc62d;
+}
+
+header .container-groups .group-icons .group--icon {
+  margin-right: 10px;
+}
+
+header .container-groups .group-icons .group--icon button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #151111;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+header .container-groups .group-icons .group--icon button:hover {
+  color: #3F51B5;
+}
+
+header .container-groups .group-avatar button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35px;
+  height: 35px;
+  background: #151111;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+
+header .container-groups .group-avatar button svg {
+  width: 100%;
+  height: 100%;
+}
+
+header .container-popup-search {
+  display: none;
+}
+
+header .container-popup-search.active {
+  display: block;
+}
+
+header .container-popup-search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 600px;
+  height: 60px;
+  background: #fff;
+  border-radius: 3px;
+  position: fixed;
+  z-index: 1100;
+  top: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-animation: form-search .3s;
+          animation: form-search .3s;
+}
+
+header .container-popup-search form .block-input {
+  width: 580px;
+  height: 40px;
+}
+
+header .container-popup-search form .block-input input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ffc62d;
+  background: none;
+  border-radius: 4px;
+  outline: none;
+  padding: 0 40px 0 20px;
+  color: rgba(21, 17, 17, 0.7);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+header .container-popup-search form .block-input input:focus {
+  border: 2px solid rgba(255, 198, 45, 0.5);
+}
+
+header .container-popup-search form .block-input button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: #151111;
+  position: absolute;
+  font-size: 16px;
+  right: 25px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+header .container-popup-search .close-search-overlay {
+  display: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 5px #151111;
+          box-shadow: 0 0 5px #151111;
+  text-align: center;
+  border-radius: 50%;
+  color: #151111;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  top: 30px;
+  right: 100px;
+  z-index: 7000;
+}
+
+header .container-popup-search .container--overlay-popupSearch {
+  width: 100%;
+  height: 100%;
+  background: rgba(21, 17, 17, 0.7);
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+}
+
+header .container-sidebar {
+  width: 20%;
+  height: 100%;
+  background: #fff;
+  border-right: 1px solid #ccc;
+  padding: 15px 0;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  z-index: 999;
+  /*--------------- MENU---------------*/
+}
+
+header .container-sidebar .logo-menu {
+  display: none;
+}
+
+header .container-sidebar .sidebar-menu li .elemment-a {
+  display: inline-block;
+  width: 80%;
+  background: rgba(204, 204, 204, 0.3);
+  padding: 13px 15px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #151111;
+}
+
+header .container-sidebar .sidebar-menu li .sidebar-submenu .sub--menu {
+  padding-left: 35px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+header .container-sidebar .sidebar-menu li .sidebar-submenu .sub--menu a {
+  display: inline-block;
+  border-left: 2px solid rgba(204, 204, 204, 0.3);
+  padding: 15px;
+  text-decoration: none;
+  color: #151111;
+  font-size: 15px;
+  font-weight: 500;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+header .container-sidebar .sidebar-menu li .sidebar-submenu .sub--menu a.active {
+  color: #3F51B5;
+  border-color: #3F51B5;
+}
+
+header .container-sidebar .sidebar-menu li .sidebar-submenu .sub--menu:hover {
+  background: rgba(204, 204, 204, 0.3);
+}
+
+header .container-sidebar .sidebar-menu li .sidebar-submenu .sub--menu:hover a {
+  color: #3F51B5;
+}
+
+/*--------------------------------------------*\
+                CONTAINER-MAIN
+\*--------------------------------------------*/
+.container-main {
+  width: 80%;
+  height: auto;
+  position: relative;
+  left: 20%;
+  /*--------------- CONTAINER LISTE PUBLIES---------------*/
+  /*--------------- CONTAINER LASTE COURSES POST---------------*/
+}
+
+.container-main .container-gerer {
+  width: 30%;
+  height: auto;
+  background: #fff;
+  margin: 10% auto;
+  padding: 50px 0;
+  border-radius: 5px;
+}
+
+.container-main .container-gerer .links-gestion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0;
+}
+
+.container-main .container-gerer .links-gestion a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #3F51B5;
+  color: #fff;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.container-main .container-gerer .links-gestion a:hover {
+  color: #ccc;
+  background: #2f3d8a;
+}
+
+.container-main .list-courses {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  width: 100%;
+  height: auto;
+  padding: 30px 60px;
+  /*--------------- TITLE ---------------*/
+  /*--------------- TITLE SECONDAIRE---------------*/
+}
+
+.container-main .list-courses .container--title-liste {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 20px;
+}
+
+.container-main .list-courses .container--title-liste h2 {
+  color: #151111;
+}
+
+.container-main .list-courses .container--title-liste h2 span {
+  float: right;
+  color: #3F51B5;
+  font-weight: 500;
+}
+
+.container-main .list-courses .group-secondaryTitles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  background: #3F51B5;
+  margin: 10px 0 0 0;
+  border-radius: 3px;
+  padding: 0 20px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.container-main .list-courses .group-secondaryTitles .name-courses {
+  width: 500px;
+  border-right: 2px solid #2f3d8a;
+}
+
+.container-main .list-courses .group-secondaryTitles .date-courses {
+  width: 230px;
+  text-align: center;
+  border-right: 2px solid #2f3d8a;
+}
+
+.container-main .list-courses .group-secondaryTitles .certificat-courses {
+  width: 235px;
+  text-align: center;
+}
+
+.container-main .list-courses .group-courses {
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.container-main .list-courses .group-courses .group--course {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+}
+
+.container-main .list-courses .group-courses .group--course a {
+  text-decoration: none;
+  color: rgba(21, 17, 17, 0.6);
+  font-size: 16px;
+}
+
+.container-main .list-courses .group-courses .group--course a:hover {
+  color: #3F51B5;
+}
+
+.container-main .list-courses .group-courses .group--course .block-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 500px;
+  height: 40px;
+  border-right: 1.5px solid rgba(204, 204, 204, 0.5);
+}
+
+.container-main .list-courses .group-courses .group--course .block-heure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 230px;
+  height: 40px;
+  text-align: center;
+  border-right: 1.5px solid rgba(204, 204, 204, 0.4);
+  color: rgba(21, 17, 17, 0.6);
+  font-size: 15px;
+}
+
+.container-main .list-courses .group-courses .group--course .block-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 235px;
+  color: rgba(21, 17, 17, 0.5);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.container-main .list-courses .group-courses .group--course .block-status span {
+  color: rgba(21, 17, 17, 0.5);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.container-main .tabs-content {
+  display: none;
+}
+
+.container-main .tabs-content.active {
+  display: block;
+}
+
+/*--------------------------------------------*\
+        CONTAINER-FORMULAIRE D'AJOUT
+\*--------------------------------------------*/
+.container-formulaire {
+  width: 80%;
+  height: auto;
+  background: #fff;
+  margin: auto;
+  padding: 20px 50px;
+  /*-------------------------------------------------*\
+                    PAGE FORMAUAIRE
+    \*-------------------------------------------------*/
+}
+
+.container-formulaire .container--title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  width: 100%;
+}
+
+.container-formulaire .container--title .title h2 {
+  font-weight: 700;
+  color: #151111;
+  font-size: 22px;
+}
+
+.container-formulaire .container--title .title h2 span {
+  color: #3F51B5;
+}
+
+.container-formulaire .container--title .title p {
+  font-size: 14px;
+  margin: 10px 0;
+  color: rgba(21, 17, 17, 0.7);
+  text-align: justify;
+}
+
+.container-formulaire .container--title .button-retour a {
+  text-decoration: none;
+  background: #3F51B5;
+  padding: 7px 10px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 33px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.container-formulaire .container--title .button-retour a:hover {
+  background: #2f3d8a;
+  color: #ccc;
+}
+
+.container-formulaire .container--contents-formulaire {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  /*----------- CONTAINER REGLES ----------*/
+}
+
+.container-formulaire .container--contents-formulaire .container-msg {
+  color: red;
+  font-size: 14px;
+}
+
+.container-formulaire .container--contents-formulaire .container-msg.active {
+  color: green;
+}
+
+.container-formulaire .container--contents-formulaire .group-formulaire {
+  width: 60%;
+}
+
+.container-formulaire .container--contents-formulaire .group-formulaire .block-input {
+  width: 100%;
+  height: 40px;
+  margin: 15px 0;
+}
+
+.container-formulaire .container--contents-formulaire .group-formulaire .block-input input,
+.container-formulaire .container--contents-formulaire .group-formulaire .block-input select {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 1px solid rgba(21, 17, 17, 0.2);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: rgba(21, 17, 17, 0.5);
+  font-weight: 500;
+}
+
+.container-formulaire .container--contents-formulaire .group-formulaire .block-input label {
+  font-weight: 500;
+  font-size: 13px;
+  padding: 5px 0;
+}
+
+.container-formulaire .container--contents-formulaire .group-formulaire .block-validation {
+  margin: 35px 0 0;
+}
+
+.container-formulaire .container--contents-formulaire .group-formulaire .block-validation input {
+  cursor: pointer;
+  width: 200px;
+  height: 45px;
+  background: #3F51B5;
+  border: 1px solid #3F51B5;
+  border-radius: 33px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.container-formulaire .container--contents-formulaire .group-regles {
+  width: 30%;
+}
+
+.container-formulaire .container--contents-formulaire .group-regles .regle-title {
+  font-size: 15px;
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #151111;
+  border-top: 4px solid rgba(21, 17, 17, 0.1);
+  position: relative;
+}
+
+.container-formulaire .container--contents-formulaire .group-regles .regle-title::before {
+  content: "";
+  width: 50px;
+  height: 5px;
+  background: #3F51B5;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+.container-formulaire .container--contents-formulaire .group-regles .block-regle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  margin-bottom: 15px;
+}
+
+.container-formulaire .container--contents-formulaire .group-regles .block-regle .icon-regle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  -webkit-box-shadow: 0 0 7px 1px rgba(21, 17, 17, 0.2);
+          box-shadow: 0 0 7px 1px rgba(21, 17, 17, 0.2);
+  margin-right: 10px;
+  border-radius: 50%;
+  color: #151111;
+}
+
+.container-formulaire .container--contents-formulaire .group-regles .block-regle .text-regle {
+  width: 80%;
+  font-size: 14px;
+  color: rgba(21, 17, 17, 0.8);
+}
+
+/*--------------------------------------------*\
+            SUPPRESSION DE COURS
+\*--------------------------------------------*/
+.container-suppression {
+  width: 80%;
+  height: auto;
+  min-height: 100vh;
+  background: #fff;
+  margin: auto;
+  padding: 20px 50px;
+}
+
+.container-suppression .container--title-Suppresion h2 {
+  font-weight: 700;
+  color: #151111;
+  font-size: 22px;
+}
+
+.container-suppression .container--title-Suppresion h2 span {
+  color: #3F51B5;
+}
+
+.container-suppression .container--title-Suppresion p {
+  font-size: 14px;
+  margin: 10px 0;
+  color: rgba(21, 17, 17, 0.7);
+  text-align: justify;
+}
+
+.container-suppression .container--suppression-formation {
+  margin: 20px 0;
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  background: rgba(204, 204, 204, 0.2);
+  border-bottom: 1px solid rgba(204, 204, 204, 0.9);
+  border-radius: 5px;
+  margin: 4px 0;
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation .titleFormation-suppresion {
+  width: 350px;
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation .titleFormation-suppresion a {
+  text-decoration: none;
+  color: rgba(21, 17, 17, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation .titleFormation-suppresion a:hover {
+  color: #3F51B5;
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation .status-suppresion {
+  font-size: 14px;
+  color: rgba(21, 17, 17, 0.4);
+  font-weight: 600;
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation .status-suppresion span {
+  font-size: 14px;
+  color: rgba(21, 17, 17, 0.4);
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation .button-suppresion a {
+  text-decoration: none;
+  background: #3F51B5;
+  color: #fff;
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 33px;
+  font-weight: 600;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.container-suppression .container--suppression-formation .suppresion-formation .button-suppresion a:hover {
+  background: #2f3d8a;
+  color: #ccc;
+}
+/*# sourceMappingURL=enseignant.css.map */

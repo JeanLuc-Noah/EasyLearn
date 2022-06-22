@@ -1,0 +1,39 @@
+$couleur-blanche:#fff;
+$couleur-jaune:#ffc62d;
+$couleur-bleu:#3F51B5;
+$couleur-noir:#151111;
+$fond-secondaire:#f3f3ef;
+$hover-jaune:#c79a20;
+$hover-bleu:#2f3d8a;
+$hover-blanche:#ccc;
+$police-ecriture:apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+/*---------------------------------------------------------*\
+                RESET & ANIMATION APPARITION
+\*---------------------------------------------------------*/
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.reveal{
+    animation:flash .3s linear;
+}
+@keyframes flash{
+    from{
+        opacity: 0;
+        display: none;
+    }
+    to{
+        opacity: 1;
+        display: block;
+    }
+}
+@keyframes form-search{
+    from{
+        top: -100%;
+    }
+    to{
+        top: 30px;
+    }
+}

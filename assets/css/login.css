@@ -1,0 +1,308 @@
+/*---------------------------------------------------------*\
+                RESET & ANIMATION APPARITION
+\*---------------------------------------------------------*/
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.reveal {
+  -webkit-animation: flash .3s linear;
+          animation: flash .3s linear;
+}
+
+@-webkit-keyframes flash {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes flash {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@-webkit-keyframes form-search {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 30px;
+  }
+}
+
+@keyframes form-search {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 30px;
+  }
+}
+
+body {
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #f3f3ef;
+}
+
+/*---------------------------------------------------------*\
+                        HEADER
+\*---------------------------------------------------------*/
+.container-login-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  /*-------------- FORMULAIRE -------------*/
+  /*-------------- FORMULAIRE -------------*/
+}
+
+.container-login-flex .container--form {
+  width: 50%;
+  height: auto;
+  padding: 25px;
+}
+
+.container-login-flex .container--image {
+  width: 50%;
+  height: 660px;
+  background: url("../images/login-img.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/*-------------- FORMULAIRE -------------*/
+.container--form form {
+  width: 70%;
+  margin: auto;
+  /*-------------- BLOCK TITLE -------------*/
+  /*-------------- CONNEXION GOOGLE & FACEBOOK -------------*/
+  /*-------------- BLOCK TITLE -------------*/
+  /*-------------- BLOCK CHAMP -------------*/
+}
+
+.container--form form .block-title {
+  margin: 10px 0;
+}
+
+.container--form form .block-title h2 {
+  font-size: 18px;
+  font-weight: 500px;
+  color: #151111;
+}
+
+.container--form form .group-medias-sociaux {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container--form form .group-medias-sociaux .block-media-sociaux {
+  margin: 10px;
+}
+
+.container--form form .group-medias-sociaux .block-media-sociaux a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 28px;
+  overflow: hidden;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.container--form form .group-medias-sociaux .block-media-sociaux:nth-child(1) a {
+  background: #2553b4;
+  border: 2px solid #2553b4;
+  color: #fff;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.container--form form .group-medias-sociaux .block-media-sociaux:nth-child(1) a:hover {
+  background: #fff;
+  color: #2553b4;
+}
+
+.container--form form .group-medias-sociaux .block-media-sociaux:nth-child(2) a {
+  color: #757575;
+  border: 1px solid #ccc;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.container--form form .group-medias-sociaux .block-media-sociaux:nth-child(2) a svg {
+  width: 23px;
+}
+
+.container--form form .group-medias-sociaux .block-media-sociaux:nth-child(2) a:hover {
+  background: #4285f4;
+  border: 1px solid #4285f4;
+  color: #fff;
+}
+
+.container--form form .barre-separateur {
+  text-align: center;
+  color: #999;
+  font-size: .9rem;
+  position: relative;
+}
+
+.container--form form .barre-separateur::before, .container--form form .barre-separateur::after {
+  content: "";
+  width: 120px;
+  border-top: 1px solid #bdbdbd;
+  position: absolute;
+}
+
+.container--form form .barre-separateur::before {
+  top: 10px;
+  left: 70px;
+}
+
+.container--form form .barre-separateur::after {
+  right: 70px;
+  top: 10px;
+}
+
+.container--form form .block-msg {
+  font-size: 13px;
+  margin: 5px 0;
+  color: red;
+}
+
+.container--form form .block-input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.container--form form .block-input input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding: 0 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 3px;
+  color: #bbb;
+  font-weight: 500;
+}
+
+.container--form form .block-input input:focus {
+  border: 1.5px solid #ffc62d;
+}
+
+.container--form form .group-rememberme {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px 0;
+}
+
+.container--form form .group-rememberme .block-rememberme {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container--form form .group-rememberme .block-rememberme label {
+  color: #151111;
+  margin: 0 5px;
+}
+
+.container--form form .group-rememberme .block-rememberme a {
+  text-decoration: none;
+  color: #3F51B5;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.container--form form .group-rememberme .block-rememberme a:hover {
+  color: #2f3d8a;
+}
+
+.container--form form .block-button {
+  width: 70%;
+  margin: 10px auto;
+}
+
+.container--form form .block-button button {
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  background: #ffc62d;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  -webkit-transition: .3s ease-in;
+  transition: .3s ease-in;
+}
+
+.container--form form .block-button button:hover {
+  background: #c79a20;
+  color: #ccc;
+}
+
+.container--form form .question {
+  margin: 20px 0;
+  text-align: center;
+  color: #151111;
+}
+
+.container--form form .question a {
+  text-decoration: none;
+  color: #3F51B5;
+  font-weight: 500;
+}
+
+.container--form form .question a:hover {
+  color: #2f3d8a;
+}
+/*# sourceMappingURL=login.css.map */

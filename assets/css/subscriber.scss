@@ -1,0 +1,336 @@
+@import "mixins/variables";
+@import "mixins/mixins";
+
+body{
+    font-family: $police-ecriture;
+}
+/*-----------------------------------------*\
+                HEADER
+\*-----------------------------------------*/
+header{
+    width: 100%;
+    height: 50px;
+    padding: 0 80px;
+    position: relative;
+    z-index: 999;
+    /*--------------- TOGGLE ---------------*/
+    .container-toggle{
+        display: none;
+        height: 50px;
+        font-size: 20px;
+        float: left;
+        margin-right: 10px;
+        color: $couleur-noir;
+    }
+    /*--------------- LOGO ---------------*/
+    .container-logo{
+        @include flexbox(center,center);
+            height: 50px;
+            margin-right: 8px;
+            float: left;
+    
+            a{
+                text-decoration: none;
+            }
+    }
+    
+    /*--------------- MENU DE NAVIGATION---------------*/
+    .container-navbars{
+        float: left;
+
+        li{
+            display: inline-block;
+            list-style: none;
+            
+            a{
+                text-decoration: none;
+                color: $couleur-noir;
+                font-weight: 400;
+                line-height: 50px;
+                padding: 7px 14px;
+
+                &:hover,
+                &.active{
+                    color: $couleur-bleu;
+                }
+            }
+        }
+    }
+    .container-navbars-other{
+        @include flexbox(center,center);
+        height: 50px;
+        float: right;
+
+        /*--------------- GROUPE DES ICONS ---------------*/
+        .group-icons{
+            @include flexbox(center,center);
+            margin-right: 10px;
+            border-right: 1px solid $couleur-jaune;
+
+            .group--icon{
+                margin-right: 5px;
+                
+                button{
+                    cursor: pointer;
+                    border:none;
+                    background: none;
+                    color: $couleur-noir;
+                    outline: none;
+                    transition: .2s;
+            
+                    &:hover{
+                        color: $couleur-bleu;
+                    }
+                }
+            }
+        }
+
+        /*-------- AVATAR-------*/
+        .group-avatar{
+            button{
+                @include flexbox(center,center);
+                width: 35px;
+                height: 35px;
+                background: $couleur-noir;
+                border: none;
+                border-radius: 50%;
+                outline: none;
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    
+    /*--------------- CONTAINER POPUP SEARCH ---------------*/
+    .container-popup-search{
+        display: none;
+        &.active{
+            display: block
+        }
+        form{
+            @include flexbox(center,center);
+            width: 600px;
+            height: 60px;
+            background: $couleur-blanche;
+            border-radius: 3px;
+            position: fixed;
+            z-index: 1100;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation : form-search .3s;
+
+            .block-input{
+                width: 580px;
+                height: 40px;
+
+                input{
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid $couleur-jaune;
+                    background: none;
+                    border-radius: 4px;
+                    outline: none;
+                    padding: 0 40px 0 20px;
+                    color: rgba($couleur-noir,.7);
+                    font-size: 16px;
+                    font-weight: 500;  
+                    &:focus{
+                        border: 2px solid rgba($couleur-jaune, .5); 
+                    }
+                    
+                }
+                button{
+                    cursor: pointer;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    color: $couleur-noir;
+                    position: absolute;
+                    font-size: 16px;
+                    right: 25px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .close-search-overlay{
+            display: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background: $couleur-blanche;
+            box-shadow: 0 0 5px $couleur-noir;
+            text-align: center;
+            border-radius: 50%;
+            color: $couleur-noir;
+            font-size: 30px;
+            font-weight: 700;
+            position: absolute;
+            top: 30px;
+            right: 100px;
+            z-index: 7000;
+        }
+        .container--overlay-popupSearch{
+            width: 100%;
+            height: 100%;
+            background: rgba($couleur-noir,.7);
+            position: fixed;
+            z-index:1000;
+            left: 0;
+            top: 0;
+        }
+    }
+
+}
+
+/*-----------------------------------------*\
+            CONTAINER SUBSCRIBER
+\*-----------------------------------------*/
+.containe-subscriber{
+    width: 100%;
+    height: 410px;  
+    position: relative;
+
+    .container----Overlayminiature{
+        width: 100%;
+        height: 400px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        filter: contrast(-100);
+        position: absolute;
+        z-index: 4;
+        left: 0;
+        top: 5px;
+    }
+    .container--overlayBackground{
+        width: 100%;
+        height: 410px;
+        background: rgba($couleur-noir,.7);
+        position: relative;
+        z-index: 8;
+        padding: 50px 90px;
+        
+        .content--categorie{
+            color:$couleur-blanche;
+            font-size: 14px;
+            a{
+                color: inherit;
+                font-weight: 600;
+                text-decoration: none;
+                &:hover{
+                    color: $hover-blanche;
+                    text-decoration: underline;
+                }
+            }
+            .separator{
+                color: $couleur-blanche;
+                font-size: 12px;
+            }
+        }
+        .content--title{
+            width: 50%;
+            margin: 10px 0;
+            font-size: 20px;
+            color: $couleur-blanche;
+        }
+        .content--description{
+            width: 50%;
+            color: $couleur-blanche;
+            font-size: 18px;
+        }
+        .content--heure{
+            margin: 12px 0;
+            color: $couleur-blanche;
+            
+            .emoticon{
+                padding: 4px 5px;
+                background: $couleur-jaune;
+                color: rgba($couleur-noir,.7);
+                font-size: 13px;
+                font-weight: 600;
+                margin-right: 10px;
+            }
+            .heure{
+               font-size: 14px;
+               font-weight: 700; 
+            }
+        }
+
+        /*------- FORMULAIRE D'INSCRIPTION ---------*/
+        .content--formulaire{
+            width: 300px;
+            height: auto;
+            position: absolute;
+            right: 15%;
+            top: 20%;
+
+            .content--formMiniature{
+                width: 300px;
+                height: 300px;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+            form{
+                width: 300px;
+                height: auto;
+                background: $couleur-blanche;
+                box-shadow: 0 0 5px 1px rgba($couleur-noir,.5);
+                padding: 20px 0;
+                text-align: center;
+
+                button{
+                    cursor: pointer;
+                    padding: 14px 30px;
+                    background: none;
+                    outline: none;
+                    border: 1.7px solid $couleur-noir;
+                    font-weight: 800;
+
+                    &:hover{
+                        background: rgba($couleur-noir,.07)
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+.container-module{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    background: #f5f4fc;
+    h1{
+        color: rgba($couleur-noir,.9);
+        padding: 5px 0;
+        font-size: 20px;
+    }
+    ul,
+    ol{
+        margin: 10px 40px;
+        li{
+            color: rgba($couleur-noir,.8);
+            font-size: 14px;
+        }
+    }
+    p{
+        color: rgba($couleur-noir,.8);
+        text-align: justify;
+        padding: 5px 0;
+        font-size: 15px;
+    }
+}

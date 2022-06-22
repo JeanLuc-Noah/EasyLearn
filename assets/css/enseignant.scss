@@ -1,0 +1,653 @@
+@import "mixins/variables";
+@import "mixins/mixins";
+
+body{
+    font-family: $police-ecriture;
+    padding-top: 50px;
+    background: $fond-secondaire;
+}
+
+/*--------------------------------------------*\
+                    HEADER
+\*--------------------------------------------*/
+header{
+    width: 100%;
+    height: 50px;
+    padding: 0 40px;
+    background: $couleur-blanche;
+    border-bottom: 1px solid $hover-blanche;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+        /*--------------- TOGGLE ---------------*/
+        .container-toggle{
+            display: none;
+            height: 50px;
+            font-size: 20px;
+            float: left;
+            margin-right: 10px;
+            color: $couleur-noir;
+        }
+    
+        /*--------------- LOGO ---------------*/
+        .container-logo{
+           @include flexbox(center,center);
+            height: 50px;
+            margin-right: 8px;
+            float: left;
+    
+            a{
+                text-decoration: none;
+            }
+        }
+
+        /*--------------- MENU ---------------*/
+        .container-menu{
+            @include flexbox(center,center);
+            height:45px;
+            float: left;
+
+            .container--navbars{
+                li{
+                    display: inline-block;
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        padding: 5px;
+                        color: $couleur-noir;
+
+                        &.active,
+                        &:hover{
+                            color: $couleur-bleu;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*--------------- AVATAR ---------------*/
+        .container-groups{
+            @include flexbox(center,center);
+            height: 50px;
+            float: right;
+    
+            /*------ ICONS -------*/
+            .group-icons{
+                @include flexbox(inherit,inherit);
+                margin-right: 10px;
+                border-right: 1px solid $couleur-jaune;
+                
+                .group--icon{
+                    margin-right: 10px;
+            
+                    button{
+                        cursor: pointer;
+                        border:none;
+                        background: none;
+                        color: $couleur-noir;
+                        outline: none;
+                        transition: .2s;
+                
+                        &:hover{
+                            color: $couleur-bleu;
+                        }
+                    }
+                }
+            }
+    
+            /*-------- AVATAR-------*/
+            .group-avatar{
+                button{
+                    @include flexbox(center,center);
+                    width: 35px;
+                    height: 35px;
+                    background: $couleur-noir;
+                    border: none;
+                    border-radius: 50%;
+                    outline: none;
+    
+                    svg{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        /*--------------- CONTAINER POPUP SEARCH ---------------*/
+        .container-popup-search{
+            display: none;
+            &.active{
+                display: block
+            }
+            form{
+                @include flexbox(center,center);
+                width: 600px;
+                height: 60px;
+                background: $couleur-blanche;
+                border-radius: 3px;
+                position: fixed;
+                z-index: 1100;
+                top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation : form-search .3s;
+
+                .block-input{
+                    width: 580px;
+                    height: 40px;
+
+                    input{
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid $couleur-jaune;
+                        background: none;
+                        border-radius: 4px;
+                        outline: none;
+                        padding: 0 40px 0 20px;
+                        color: rgba($couleur-noir,.7);
+                        font-size: 16px;
+                        font-weight: 500;  
+                        &:focus{
+                            border: 2px solid rgba($couleur-jaune, .5); 
+                        }
+                        
+                    }
+                    button{
+                        cursor: pointer;
+                        background: none;
+                        border: none;
+                        outline: none;
+                        color: $couleur-noir;
+                        position: absolute;
+                        font-size: 16px;
+                        right: 25px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+            .close-search-overlay{
+                display: none;
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                background: $couleur-blanche;
+                box-shadow: 0 0 5px $couleur-noir;
+                text-align: center;
+                border-radius: 50%;
+                color: $couleur-noir;
+                font-size: 30px;
+                font-weight: 700;
+                position: absolute;
+                top: 30px;
+                right: 100px;
+                z-index: 7000;
+            }
+            .container--overlay-popupSearch{
+                width: 100%;
+                height: 100%;
+                background: rgba($couleur-noir,.7);
+                position: fixed;
+                z-index:1000;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        /*---------------SIDEBAR ---------------*/
+        .container-sidebar{
+            width: 20%;
+            height: 100%;
+            background: $couleur-blanche;
+            border-right: 1px solid $hover-blanche;
+            padding: 15px 0;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            z-index: 999;
+
+            .logo-menu{
+                display: none;
+            }
+
+            /*--------------- MENU---------------*/
+            .sidebar-menu{
+
+                li{
+                    .elemment-a{
+                        display: inline-block;
+                        width: 80%;
+                        background: rgba($hover-blanche,.3);
+                        padding: 13px 15px;
+                        border-bottom-right-radius: 30px;
+                        border-top-right-radius: 30px;
+                        text-decoration: none;
+                        font-weight: 500;
+                        color: $couleur-noir;
+                    }
+                    .sidebar-submenu{
+                        .sub--menu{
+                            padding-left: 35px;
+                            transition: .3s;
+                            
+                            a{
+                                display: inline-block;
+                                border-left: 2px solid rgba($hover-blanche,.3);
+                                padding: 15px;
+                                text-decoration: none;
+                                color: $couleur-noir;
+                                font-size: 15px;
+                                font-weight: 500;
+                                transition: .3s;
+
+                                &.active{
+                                    color: $couleur-bleu;
+                                    border-color: $couleur-bleu;
+                                }
+                            }
+
+                            &:hover{
+                                background: rgba($hover-blanche,.3);
+                                a{
+                                    color: $couleur-bleu;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+}
+
+/*--------------------------------------------*\
+                CONTAINER-MAIN
+\*--------------------------------------------*/
+.container-main{
+    width: 80%;
+    height: auto;
+    position: relative;
+    left: 20%;
+
+    .container-gerer{
+        width: 30%;
+        height: auto;
+        background: $couleur-blanche;
+        margin: 10% auto;
+        padding: 50px 0;
+        border-radius: 5px;
+
+        .links-gestion{
+            @include flexbox(center,center);
+            margin: 10px 0;
+        
+            a{
+                display: inline-block;
+                text-decoration: none;
+                padding: 10px 20px;
+                background: $couleur-bleu;
+                color: $couleur-blanche;
+                border-radius: 3px;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: 600;
+                transition: .3s;
+        
+                &:hover{
+                    color: $hover-blanche;
+                    background: $hover-bleu;
+                }
+            }
+        }
+    }
+
+
+    /*--------------- CONTAINER LISTE PUBLIES---------------*/
+    .list-courses{
+        @include flexbox(inherit,inherit);
+        width: 100%;
+        height: auto;
+        padding: 30px 60px;
+        
+
+        /*--------------- TITLE ---------------*/
+        .container--title-liste{
+            border-bottom: 1px solid $hover-blanche;
+            padding: 5px 20px;
+
+            h2{
+                color: $couleur-noir;
+                span{
+                    float: right;
+                    color: $couleur-bleu;
+                    font-weight: 500;
+                }
+            }
+        }
+        /*--------------- TITLE SECONDAIRE---------------*/
+        .group-secondaryTitles{
+            @include flexbox(inherit,center);
+            height: 40px;
+            background: $couleur-bleu;
+            margin: 10px 0 0 0;
+            border-radius: 3px;
+            padding: 0 20px ;
+            color: $couleur-blanche;
+            font-weight: 500;
+
+            .name-courses{
+                width: 500px;
+                border-right: 2px solid $hover-bleu;
+            }
+            .date-courses{
+                width: 230px;
+                text-align: center;
+                border-right: 2px solid $hover-bleu;
+            }
+            .certificat-courses{
+                width: 235px;
+                text-align: center;
+
+            }
+        }
+        .group-courses{
+            background: rgba($couleur-blanche,.7);
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+
+            .group--course{
+                @include flexbox(inherit,center);
+                height: 40px;
+                padding: 0 20px ;
+                border-bottom: 1px solid rgba($hover-blanche,.3);
+
+                a{
+                    text-decoration: none;
+                    color: rgba($couleur-noir,.6);
+                    font-size: 16px;
+
+                    &:hover{
+                        color: $couleur-bleu;
+                    }
+                }
+                .block-name{
+                    @include flexbox(inherit,center);
+                    width: 500px;
+                    height: 40px;
+                    border-right: 1.5px solid rgba($hover-blanche,.5);
+                }
+                .block-heure{
+                    @include flexbox(center,center);
+                    width: 230px;
+                    height: 40px;
+                    text-align: center;
+                    border-right: 1.5px solid rgba($hover-blanche,.4);
+                    color: rgba($couleur-noir,.6);
+                    font-size: 15px;
+                }
+                .block-status{
+                    @include flexbox(center,center);
+                    width: 235px;
+                    color: rgba($couleur-noir,.5);
+                    font-size: 13px;
+                    font-weight: 600;
+
+                    span{
+                        color: rgba($couleur-noir,.5);
+                        font-size: 15px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+        /*--------------- CONTAINER LASTE COURSES POST---------------*/
+        .tabs-content{
+            display: none;
+            
+            &.active{
+                display: block;
+            }
+        }
+
+}
+
+/*--------------------------------------------*\
+        CONTAINER-FORMULAIRE D'AJOUT
+\*--------------------------------------------*/
+.container-formulaire{
+    width: 80%;
+    height: auto;
+    background: $couleur-blanche;
+    margin: auto;
+    padding: 20px 50px;
+    
+    .container--title{
+        @include flexbox(space-between,inherit);
+        width: 100%;
+
+        .title{
+            h2{
+                font-weight: 700;
+                color: $couleur-noir;
+                font-size: 22px;
+    
+                span{
+                    color: $couleur-bleu;
+                }
+            }
+            p{
+                font-size: 14px;
+                margin: 10px 0;
+                color: rgba($couleur-noir,.7);
+                text-align: justify;
+            }
+        }
+        .button-retour{
+            a{
+                text-decoration: none;
+                background: $couleur-bleu;
+                padding: 7px 10px;
+                color: $couleur-blanche;
+                font-size: 12px;
+                font-weight: 500;
+                border-radius: 33px;
+                transition: .3s;
+                
+                &:hover{
+                    background: $hover-bleu;
+                    color: $hover-blanche;
+                }
+            }
+        }
+    }
+
+    /*-------------------------------------------------*\
+                    PAGE FORMAUAIRE
+    \*-------------------------------------------------*/
+    .container--contents-formulaire{
+        @include flexbox(space-between,inherit);
+
+        .container-msg{
+            color:red;
+            font-size: 14px;
+
+            &.active{
+                color: green;
+            }
+
+        }
+        .group-formulaire{
+            width: 60%;
+
+            .block-input{
+                width: 100%;
+                height: 40px;
+                margin: 15px 0;
+
+                input,
+                select{
+                    width: 100%;
+                    height: 100%;
+                    outline: none;
+                    border: 1px solid rgba($couleur-noir,.2);
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    color: rgba($couleur-noir,.5);
+                    font-weight: 500;
+                }
+                label{
+                    font-weight: 500;
+                    font-size: 13px;
+                    padding: 5px 0;
+                }
+            }
+            .block-validation{
+                margin: 35px 0 0;
+                
+                input{
+                    cursor: pointer;
+                    width: 200px;
+                    height: 45px;
+                    background: $couleur-bleu;
+                    border: 1px solid $couleur-bleu;
+                    border-radius: 33px;
+                    color: $couleur-blanche;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        /*----------- CONTAINER REGLES ----------*/
+        .group-regles{
+            width: 30%;
+
+            .regle-title{
+                font-size: 15px;
+                padding: 10px 0;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: $couleur-noir;
+                border-top: 4px solid rgba($couleur-noir,.1);
+                position: relative;
+
+                &::before{
+                    content: "";
+                    width: 50px;
+                    height: 5px;
+                    background: $couleur-bleu;
+                    position: absolute;
+                    left: 0;
+                    top: -5px;
+                }
+            }
+            .block-regle{
+                @include flexbox(inherit,inherit);
+                margin-bottom: 15px;
+                .icon-regle{
+                    @include flexbox(center,center);
+                    width: 40px;
+                    height: 40px;
+                    box-shadow: 0 0 7px 1px rgba($couleur-noir,.2);
+                    margin-right: 10px;
+                    border-radius: 50%;
+                    color: $couleur-noir;
+                }
+                .text-regle{
+                    width: 80%;
+                    font-size: 14px;
+                    color: rgba($couleur-noir,.8);
+                }
+            }
+        }
+
+    }
+}
+/*--------------------------------------------*\
+            SUPPRESSION DE COURS
+\*--------------------------------------------*/
+.container-suppression{
+    width: 80%;
+    height: auto;
+    min-height: 100vh;
+    background: $couleur-blanche;
+    margin: auto;
+    padding: 20px 50px;
+
+    .container--title-Suppresion{
+        h2{
+            font-weight: 700;
+            color: $couleur-noir;
+            font-size: 22px;
+
+            span{
+                color: $couleur-bleu;
+            }
+        }
+        p{
+            font-size: 14px;
+            margin: 10px 0;
+            color: rgba($couleur-noir,.7);
+            text-align: justify;
+        }
+    }
+
+    .container--suppression-formation{
+        margin: 20px 0;
+
+        .suppresion-formation{
+            @include flexbox(space-between,center);
+            height: 40px;
+            padding: 0 20px;
+            background: rgba($hover-blanche, .2);
+            border-bottom: 1px solid rgba($hover-blanche, .9);
+            border-radius: 5px;
+            margin: 4px 0;
+
+            .titleFormation-suppresion{
+                width: 350px;
+                a{
+                    text-decoration: none;
+                    color: rgba($couleur-noir,.7);
+                    font-size: 14px;
+                    font-weight: 500;
+
+                    &:hover{
+                        color: $couleur-bleu;
+                    }
+                }
+            }
+            .status-suppresion{
+                font-size: 14px;
+                color: rgba($couleur-noir,.4);
+                font-weight: 600;
+                span{
+                    font-size: 14px;
+                    color: rgba($couleur-noir,.4);
+                }
+            }
+            .button-suppresion{
+                a{
+                    text-decoration: none;
+                    background: $couleur-bleu;
+                    color: $couleur-blanche;
+                    padding: 3px 10px;
+                    font-size: 12px;
+                    border-radius: 33px;
+                    font-weight: 600;
+                    transition: .3s ease-in-out;
+
+                    &:hover{
+                        background: $hover-bleu;
+                        color: $hover-blanche;
+                    }
+                }
+            }
+
+        
+        }
+    }
+}

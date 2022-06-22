@@ -1,0 +1,217 @@
+@import "mixins/mixins";
+@import "mixins/variables";
+
+body{
+    font-family: $police-ecriture;
+    background: $fond-secondaire;
+}
+
+/*---------------------------------------------------------*\
+                        HEADER
+\*---------------------------------------------------------*/
+.container-login-flex{
+    @include flexbox(inherit,inherit);
+    width: 100%;
+    height: auto;
+    background: $couleur-blanche;
+
+    /*-------------- FORMULAIRE -------------*/
+    .container--form{
+        width: 50%;
+        height: auto;
+        padding: 25px;
+    }
+
+    /*-------------- FORMULAIRE -------------*/
+    .container--image{
+        width: 50%;
+        height: 660px;
+        background: url("../images/login-img.jpg") no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/*-------------- FORMULAIRE -------------*/
+.container--form{
+
+    form{
+        width: 70%;
+        margin: auto;
+
+        /*-------------- BLOCK TITLE -------------*/
+        .block-title{
+            margin: 10px 0;
+
+            h2{
+                font-size: 18px;
+                font-weight: 500px;
+                color: $couleur-noir;
+            }
+        }
+
+        /*-------------- CONNEXION GOOGLE & FACEBOOK -------------*/
+        .group-medias-sociaux{
+            @include flexbox(center,center);
+
+            .block-media-sociaux{
+                margin: 10px;
+
+                a{
+                    @include flexbox(center,center);
+                    padding: 10px 28px;
+                    overflow: hidden;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+
+                &:nth-child(1){
+                    a{
+                        background: #2553b4;
+                        border:2px solid #2553b4;
+                        color: #fff;
+                        transition: .3s;
+
+                        &:hover{
+                            background: #fff;
+                            color: #2553b4;
+                        }
+                    }
+                }
+                &:nth-child(2){
+                    a{
+                        color: #757575;
+                        border:1px solid #ccc;
+                        transition: .3s;
+
+                        svg{
+                            width: 23px;
+                        }
+
+                        &:hover{
+                            background: #4285f4;
+                            border:1px solid #4285f4;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+        }
+        .barre-separateur{
+            text-align: center;
+            color: #999;
+            font-size: .9rem;
+            position: relative;
+
+            &::before,
+            &::after{
+                content: "";
+                width: 120px;
+                border-top: 1px solid rgb(189, 189, 189);
+                position: absolute;
+            }
+            &::before{
+                top: 10px;
+                left: 70px;
+            }
+            &::after{
+                right: 70px;
+                top: 10px;
+            }
+        }
+
+         /*-------------- BLOCK TITLE -------------*/
+        .block-msg{
+            font-size: 13px;
+            margin: 5px 0;
+            color: red;
+        }
+        /*-------------- BLOCK CHAMP -------------*/
+        .block-input{
+            width: 100%;
+            margin: 10px 0;
+
+            input{
+                width: 100%;
+                height: 40px;
+                outline: none;
+                padding: 0 15px;
+                border: 1.5px solid $hover-blanche;
+                border-radius: 3px;
+                color: #bbb;
+                font-weight:500;
+
+                &:focus{
+                    border: 1.5px solid $couleur-jaune;
+                }
+            }
+        }
+        .group-rememberme{
+            @include flexbox(space-between,center);
+            margin: 15px 0;
+
+            .block-rememberme{
+              @include flexbox(center,center);
+
+              label{
+                  color: $couleur-noir;
+                  margin:0 5px;
+              }
+
+              a{
+                text-decoration: none;
+                color: $couleur-bleu;
+                transition: .3s ease-in-out;
+
+                &:hover{
+                    color: $hover-bleu;
+                }
+              }
+
+            }
+        }
+
+        .block-button{
+            width: 70%;
+            margin: 10px auto;
+
+            button{
+                width: 100%;
+                height: 50px;
+                border-radius: 50px;
+                background: $couleur-jaune;
+                border: none;
+                color: $couleur-blanche;
+                font-weight: 600;
+                font-size: 16px;
+                transition: .3s ease-in;
+
+                &:hover{
+                    background: $hover-jaune;
+                    color: $hover-blanche;
+                }
+            }
+        }
+
+        .question{
+            margin: 20px 0;
+            text-align: center;
+            color: $couleur-noir;
+
+            a{
+                text-decoration: none;
+                color: $couleur-bleu;
+                font-weight: 500;
+
+                &:hover{
+                    color: $hover-bleu;
+                }
+            }
+        }
+
+
+    }
+}

@@ -1,0 +1,798 @@
+@import "mixins/variables";
+@import "mixins/mixins";
+
+body{
+    font-family: $police-ecriture;
+}
+/*-----------------------------------------*\
+                HEADER
+\*-----------------------------------------*/
+header{
+    width: 100%;
+    height: 50px;
+    padding: 0 80px;
+
+    /*--------------- TOGGLE ---------------*/
+    .container-toggle{
+        display: none;
+        height: 50px;
+        font-size: 20px;
+        float: left;
+        margin-right: 10px;
+        color: $couleur-noir;
+    }
+    /*--------------- LOGO ---------------*/
+    .container-logo{
+        @include flexbox(center,center);
+            height: 50px;
+            margin-right: 8px;
+            float: left;
+    
+            a{
+                text-decoration: none;
+            }
+    }
+    
+    /*--------------- MENU DE NAVIGATION---------------*/
+    .container-navbars{
+        float: left;
+
+        li{
+            display: inline-block;
+            list-style: none;
+            
+            a{
+                text-decoration: none;
+                color: $couleur-noir;
+                font-weight: 400;
+                line-height: 50px;
+                padding: 7px 14px;
+
+                &:hover,
+                &.active{
+                    color: $couleur-bleu;
+                }
+            }
+        }
+    }
+    .container-navbars-other{
+        @include flexbox(center,center);
+        height: 50px;
+        float: right;
+
+        /*--------------- GROUPE DES ICONS ---------------*/
+        .group-icons{
+            @include flexbox(center,center);
+            margin-right: 10px;
+            border-right: 1px solid $couleur-jaune;
+
+            .group--icon{
+                margin-right: 5px;
+                
+                button{
+                    cursor: pointer;
+                    border:none;
+                    background: none;
+                    color: $couleur-noir;
+                    outline: none;
+                    transition: .2s;
+            
+                    &:hover{
+                        color: $couleur-bleu;
+                    }
+                }
+            }
+        }
+
+        /*-------- AVATAR-------*/
+        .group-avatar{
+            button{
+                @include flexbox(center,center);
+                width: 35px;
+                height: 35px;
+                background: $couleur-noir;
+                border: none;
+                border-radius: 50%;
+                outline: none;
+
+                svg{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    
+    /*--------------- CONTAINER POPUP SEARCH ---------------*/
+    .container-popup-search{
+        display: none;
+        &.active{
+            display: block
+        }
+        form{
+            @include flexbox(center,center);
+            width: 600px;
+            height: 60px;
+            background: $couleur-blanche;
+            border-radius: 3px;
+            position: fixed;
+            z-index: 1100;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation : form-search .3s;
+
+            .block-input{
+                width: 580px;
+                height: 40px;
+
+                input{
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid $couleur-jaune;
+                    background: none;
+                    border-radius: 4px;
+                    outline: none;
+                    padding: 0 40px 0 20px;
+                    color: rgba($couleur-noir,.7);
+                    font-size: 16px;
+                    font-weight: 500;  
+                    &:focus{
+                        border: 2px solid rgba($couleur-jaune, .5); 
+                    }
+                    
+                }
+                button{
+                    cursor: pointer;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    color: $couleur-noir;
+                    position: absolute;
+                    font-size: 16px;
+                    right: 25px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .close-search-overlay{
+            display: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background: $couleur-blanche;
+            box-shadow: 0 0 5px $couleur-noir;
+            text-align: center;
+            border-radius: 50%;
+            color: $couleur-noir;
+            font-size: 30px;
+            font-weight: 700;
+            position: absolute;
+            top: 30px;
+            right: 100px;
+            z-index: 7000;
+        }
+        .container--overlay-popupSearch{
+            width: 100%;
+            height: 100%;
+            background: rgba($couleur-noir,.7);
+            position: fixed;
+            z-index:1000;
+            left: 0;
+            top: 0;
+        }
+    }
+
+}
+
+/*-----------------------------------------------*\
+            CONTAINER PRESENTATION
+\*-----------------------------------------------*/
+.container-presentation{
+    width: 100%;
+    height: auto;
+    background: $couleur-blanche;
+
+    /*---------- PRESENTATION ------------*/
+    .container--fluid-presentation{
+        @include flexbox(inherit,inherit);
+        width: 90%;
+        height: 450px;
+        background: $fond-secondaire;
+        margin: auto;
+
+        .conteiner--content{
+            width: 50%;
+            height: 100%;
+        }
+
+        .texte-presentaion{
+            width: 100%;
+            height: 100%;
+            padding: 80px;
+
+            h1{
+                font-size: 48px;
+                text-align: left;
+                color: $couleur-noir;
+                line-height: 55px;
+            }
+            p{  
+                padding: 15px 0;
+                color: #555;
+                font-size: 15px;
+                font-weight: 400;
+            }
+
+            /*------- BUTTON ---------*/
+            .group-buttons-presentation{
+                @include flexbox(inherit,inherit);
+                margin-top: 30px;
+
+                .block-button{
+                    margin-right: 15px;
+
+                    button{
+                        cursor: pointer;
+                        font-weight: 600;
+                        outline: none;
+                        transition: .5s;
+                    }
+                    &:nth-child(1){
+                        button{
+                            background: $couleur-bleu;
+                            border-radius: 8px;
+                            border: $couleur-bleu;
+                            color: $couleur-blanche;
+                            padding:14px 24px;
+            
+                            &:hover{
+                                background: $hover-bleu;
+                                color: $hover-blanche;
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        button{
+                            border: none;
+                            background: none;
+                            padding: 13px 2px;
+                            position: relative;
+                            z-index: 2;
+            
+                            &::before{
+                                content: "";
+                                width: 125px;
+                                height: 2px;
+                                background: $couleur-noir;
+                                position: absolute;
+                                transition: .5s;
+                                z-index: -2;
+                                left: 0;
+                                bottom: 0;
+                            }
+                            &:hover{
+                                &::before{
+                                    height: 40px;
+                                    border-top-left-radius: 8px;
+                                    border-top-right-radius: 8px;
+                                }
+                                color: $hover-blanche;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .image-presentation{
+            width: 100%;
+            height: 100%;
+            background: url("../images/font1.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    /*---------- ASIDE ------------*/
+    .container--aside{
+       @include flexbox(space-between,inherit);
+       width: 90%;
+       margin: 10px auto;
+
+       .block-aside{
+           @include flexbox(center,center);
+            
+           .block--content-aside{
+               @include flexbox(center,center);
+               width: 60px;
+               height: 60px;
+               border-radius: 50%;
+               position: relative;
+
+               &.compass{
+                background: #fde7e5;
+                }
+                &.watch{
+                background: #e3d1ff;
+                }
+                &.user{
+                    background: #fde2cf;
+                }
+                &.book{
+                    background: #e7ffe2;
+                }
+         
+                .icon-aside{
+                    font-size: 33px;
+                    z-index: 2;
+                    position: relative;
+
+                    &.compass{
+                        color: #fdc5bc;
+                    }
+                    &.watch{
+                        color: #be99ff;
+                    }
+                    &.user{
+                        color: #fe9b4f;
+                    }
+                    &.book{
+                        color: #74db64;
+                    }
+                }
+                .overlay-icon-aside{
+                    font-size: 30px;
+                    z-index: 1;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-65%, -65%);
+            
+                    &.compass{
+                        color: #ff8e79;
+                    }
+                    &.watch{
+                        color: #a673fa;
+                    }
+                    &.user{
+                        color: #feb482;
+                    }
+                    &.book{
+                        color: #b4e9ba;
+                    }
+                }
+           }
+           span{
+                margin: 0 5px;
+                font-weight: 600;
+                color: $couleur-noir;
+                font-size: 15px;
+            }
+       }
+    }
+
+}
+
+/*-----------------------------------------------*\
+            CONTAINER MAIN
+\*-----------------------------------------------*/
+.container-courses{
+    width: 100%;
+    height: auto;
+
+    .container--fluid-courses{
+        width: 90%;
+        height: auto;
+        margin: 20px auto;
+
+                /*GROUP  TITRE DE CONETNUS*/
+                .group-title-course{
+                    @include flexbox(space-between,inherit);
+                    margin: 15px 0;
+                    h2{
+                        color: $couleur-noir;
+                        font-size: 24px;
+                    }
+                    h3{
+                        font-size: 15px;
+                        color: $couleur-noir;
+                        transition: .5s;
+                        a{
+                            text-decoration: none;
+                            color: inherit;
+                        }
+                        &:hover{
+                            a{
+                                color: $couleur-bleu;
+                            }
+                        }
+                    }
+                }
+        
+                /*------ GROUP COURSES--------*/
+                .group-courses{
+                    @include flexbox(space-between,inherit);
+        
+                    .course{
+                        width: 280px;
+                        height: 325px;
+                        position: relative;
+        
+                        /*------ MINIATURE ---------*/
+                        .course--miniature{
+                            width: 280px;
+                            height: 150px;
+                            border-top-left-radius: 5px;
+                            border-top-right-radius: 5px;
+                            background-size: cover;
+                            background-position: center;
+                            position: relative;
+        
+                            a{
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                text-decoration: none;
+                                border-top-left-radius: 5px;
+                                border-top-right-radius: 5px;
+                                transition: .3s ease-in;
+                            }
+                            &:hover{
+                                a{
+                                    background: rgba($couleur-noir, .5);
+                                }
+                            }
+                        }
+        
+                        /*------ INFO SUPPLEMENTAIRE ---------*/
+                        .course--Infosupplemetaire{
+                            height: auto;
+                            background:$couleur-blanche;
+                            box-shadow: 0 0 10px 1px rgba($couleur-noir,.09);
+                            
+                            .course--categorie{
+                                width: auto;
+                                padding: 5px 23px;
+                                background: #cfffd4;
+                                border-radius: 5px;
+                                color: $couleur-noir;
+                                font-weight: 600;
+                                font-size: 13px;
+                                position: absolute;
+                                left: 20px;
+                                top: 52%;
+                                transform: translateY(-52%);
+        
+                                &::before{
+                                    content: "";
+                                    width: 10px;
+                                    height: 10px;
+                                    background:#74db64;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    left: 10px;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                                
+                            }
+                            .course--titre{
+                                height: 90px;
+                                padding:40px 15px;
+                                font-weight: 600;
+        
+                                h2{
+                                    color: $couleur-noir;
+                                    font-size: 15px;
+                                    a{
+                                        text-decoration: none;
+                                        color: inherit;
+                                    }
+                                }
+                            }
+                            .course--block-icons{
+                                @include flexbox(inherit,inherit);
+                                padding: 10px ;
+                                border-top: 1px solid $hover-blanche;
+        
+        
+                                .block--icon{
+                                    @include flexbox(center,center);
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: $couleur-noir;
+                                    padding-right: 15px;
+        
+                                    span{
+                                        @include flexbox(center,center);
+                                        width: 30px;
+                                        height: 30px;
+                                        border-radius: 50%;
+                                        font-size: 15px;
+                                        box-shadow: 0 0 5px $hover-blanche;
+                                        margin-right: 5px;
+                                    }
+                                }
+                                .block--auhtor{
+                                    width: 35px;
+                                    height: 35px;
+                                    border-radius: 50%;
+                                    border-top: 1px solid $hover-blanche;
+                                    position: relative;
+                                    left: 85px;
+                    
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                        border-radius: 50%;
+                                        object-fit: cover;
+                                        object-position: center;
+                                    }
+                                }
+                            }
+        
+                        }
+                        
+        
+        
+                        &:nth-child(2){
+                            .course--Infosupplemetaire{
+                                .course--categorie{
+                                    background: #fdebea;
+            
+                                    &::before{
+                                        background:#fdc5bc;
+                                    }                          
+                                }
+                            }
+                        }
+        
+                        &:nth-child(3){
+                            .course--Infosupplemetaire{
+                                .course--categorie{
+                                    background: #e3d1ff;
+            
+                                    &::before{
+                                        background:#be99ff;
+                                    }                          
+                                }
+                            }
+                        }
+        
+                        &:nth-child(4){
+                            .course--Infosupplemetaire{
+                                .course--categorie{
+                                    background: #fde2cf;
+            
+                                    &::before{
+                                        background:#fe9b4f;
+                                    }                          
+                                }
+                            }
+                        }
+        
+        
+        
+                    }
+                }
+    }
+}
+
+/*-----------------------------------------------*\
+            CONTAINER LEANING ILLUSTRATION
+\*-----------------------------------------------*/
+.container-learningIllustration{
+    @include flexbox(center,center);
+    width:100%;
+    height:460px;
+    background: rgba($hover-blanche,.5);
+    margin: 30px 0;
+
+    .content-text-learnIllustration{
+        width: 55%;
+        height: 400px;
+        padding: 70px 100px;
+        position: relative;
+
+        h1{
+            font-size: 2em;
+        }
+        p{
+            padding: 10px 0;
+            color: rgba($couleur-noir, .6);
+            font-weight: 400;
+            font-size: 14px;
+        }
+        .group-illustion-icons{
+            .icon{
+                margin-right: 5px;
+                font-size: 14px;
+                color: rgba(255, 100, 203, 0.4);
+            }
+            span{
+                font-size: 13px;
+                color: rgba($couleur-noir, .9);
+                font-weight: 500;
+            }
+        }
+        .group-button{
+            margin: 30px 0;
+
+            button{
+                cursor: pointer;
+                padding: 8px 23px;
+                background:$couleur-bleu;
+                border-color: transparent;
+                outline: none;
+                border-radius: 5px;
+                color: $couleur-blanche;
+                font-weight: 500;
+                font-size: 13px;
+                transition: .3s ease-in-out;
+
+                &:hover{
+                    background: $hover-bleu;
+                    color: $hover-blanche
+                }
+            }
+        }
+        .learningIllustration-vignette{
+            width: 250px;
+            height: auto;
+            background: $couleur-blanche;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            padding: 20px;
+            position: absolute;
+            right: -40px;
+            top: 48%;
+  
+            .group-vignette{
+                @include flexbox(center,center);
+                width: 40px;
+                height: 40px;
+                background: #e3fff8;
+                border-radius: 50%;
+                margin: 5px 0;
+                color:#4ec7ad;
+                
+
+                span{
+                    font-size: 24px;
+                    font-weight: 900;
+                    text-align: center;
+                }
+            }
+            p{
+                text-align: left;
+                font-size: 13px;
+                font-weight: 600;
+            }
+        }
+    }
+    .content-image-learnIllustration{
+        width: 400px;
+        height: 400px;
+        background: url("../images/utilisation.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.container-aside-learningIllusration{
+    width: 100%;
+    height: 200px;
+    background: url("../images/023.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 50px 0;
+    position: relative;
+
+    .container-joinUs{
+        position: absolute;
+        left: 65%;
+        top: 65%;
+        transform: translate(-50%,-70%);
+        padding: 0 20px;
+
+        h1{
+            color: rgba($color: #000000, $alpha: .9)
+        }
+        button{
+            cursor: pointer;
+            padding: 8px 23px;
+            background:$couleur-bleu;
+            border-color: transparent;
+            outline: none;
+            border-radius: 5px;
+            color: $couleur-blanche;
+            font-weight: 500;
+            font-size: 13px;
+            transition: .3s ease-in-out;
+            margin: 10px 0;
+
+            &:hover{
+                background: $hover-bleu;
+                color: $hover-blanche
+            }
+        }
+    }
+}
+
+/*--------------------------------------------*\
+            CONTAINER FOOTER
+\*--------------------------------------------*/
+.container-footer{
+    width: 100%;
+    height: auto;
+    background: $couleur-blanche;
+    border-top: 1px solid $hover-blanche;
+    flex-shrink: 0;
+    
+
+    footer{
+        @include flexbox(space-around,inherit);
+        width: 100%;
+        height: auto;
+        padding: 20px;
+
+        .title--group-footer{
+            margin-bottom: 10px;
+            color: $couleur-bleu;
+            font-weight: 700;
+            padding: 0 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .content--group-footer{
+            li{
+                list-style: none;
+                a{
+                    text-decoration: none;
+                    color: rgba($couleur-noir,.9);
+                    font-weight: 400;
+                    padding: 5px;
+                    font-weight: 500;
+                    font-size: 14px;
+                    transition: .3s;
+                    
+                    &:hover{
+                        color: $couleur-bleu;
+                    }
+                }
+            }
+
+            .group-icons-sociaux{
+                @include flexbox(inherit,inherit);
+
+                .icon-sociaux{
+                    @include flexbox(center,center);
+                    width: 38px;
+                    height: 38px;
+                    border: 1px solid rgba($couleur-noir,.5);
+                    box-shadow: 0 0 50px 5px rgba($hover-bleu,.5);
+                    margin: 0 8px;
+                    border-radius: 50%;
+                    transition: .3s;
+                    a{
+                        color: rgba($couleur-noir,.8);
+                        text-decoration: none;
+                        font-size: 17px;
+                        
+                        &:hover{
+                            color: $couleur-bleu;
+                        }
+                    }
+                }
+            }
+
+            .copyright{
+                font-size: 12px;
+                float: right;
+                margin: 30px 0;
+                font-weight: 600;
+            }
+        }
+    }
+}

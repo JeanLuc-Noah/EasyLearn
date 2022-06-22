@@ -1,0 +1,199 @@
+@import "mixins/mixins";
+@import "mixins/variables";
+
+body{
+    font-family: $police-ecriture;
+    background: $fond-secondaire;
+
+    &::-webkit-scrollbar{
+        width: 10px;
+        background: #f8f8f9;   
+    }
+    &::-webkit-scrollbar-track{
+        border:1px solid #eaeaea;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: #dfdfe0;
+        border-radius: 80px;
+        border: 1px solid #eaeaea;
+    }
+}
+
+/*---------------------------------------*\
+            GROUPE DE CONTENUS 
+\*---------------------------------------*/
+.group-content{
+    @include flexbox(inherit,inherit);
+    width: 100%;
+    height: 700px;
+
+    /*------------ GROUPE FORMULAIRE -------------*/
+    .group-form{
+        width: 50%;
+        height: 700px;
+        background:$couleur-blanche;
+
+        /*------- LOGO -----*/
+        .logo{
+            padding:20px;
+        }
+
+        form{
+            width: 70%;
+            padding: 0 20px;
+            margin: auto;
+
+            .block-titre{
+                margin: 20px 0;
+
+                h2{
+                    font-size: 18px;
+                    font-weight: 500px;
+                    color: $couleur-noir;
+                }
+            }
+
+            /*-------- MESSAGE ERREUR ---------*/
+            .msg-error{
+                font-size: 14px;
+                color: #f00000;
+                margin: 5px 0;
+
+                &.succes{
+                    color: #21c036;
+                    a{
+                        text-decoration: none;
+                        color: $couleur-bleu;
+                    }
+                }
+            }
+
+            /*--------- CHAMPS -------*/
+            .block-input{
+                width: 100%;
+                margin: 10px 0;
+                
+                input{
+                    width: 100%;
+                    height: 40px;
+                    outline: none;
+                    padding: 0 15px;
+                    border: 1.5px solid #ccc;
+                    border-radius: 3px;
+                    color: #bbb;
+                    font-weight:500;
+                    
+                    &:focus{
+                        border: 1.5px solid $couleur-jaune;
+                    }
+                }
+            }
+
+            .group-blocks{
+                @include flexbox(space-between, inherit);
+
+                .block-input{
+                    width: 40%;
+                    margin: 0;
+
+                    select{
+                        width: 100%;
+                        height: 40px;
+                        border: 1.5px solid #ccc;
+                        border-radius: 3px;
+                        color: #bbb;
+                        font-weight:500;
+                        outline: none;
+
+                        &:focus{
+                            border: 1.5px solid $couleur-jaune;
+                        }
+                        &::-webkit-scrollbar{
+                            width: 10px;
+                            background: #f8f8f9;   
+                        }
+                        &::-webkit-scrollbar-track{
+                            border:1px solid #eaeaea;
+                        }
+                        &::-webkit-scrollbar-thumb{
+                            background: #dfdfe0;
+                            border-radius: 80px;
+                            border: 1px solid #eaeaea;
+                        }
+                    }
+                }
+            }
+
+            /*--------- CGU -------*/
+            .cgu{
+                width: 70%;
+                margin: 20px auto;
+                text-align: center;
+                font-size: 14px;
+                color: var(--couleurText);
+                
+                a{
+                    text-decoration: none;
+                    color: $couleur-bleu;
+                    font-weight: 500;
+                }
+            }
+
+            .block-button{
+                width: 70%;
+                margin: auto;
+
+                button{
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 50px;
+                    background: $couleur-jaune;
+                    border: none;
+                    color: $couleur-blanche;
+                    font-weight: 600;
+                    font-size: 16px;
+                    transition: .3s ease-in;
+
+                    &:hover{
+                        background:$hover-jaune;
+                        color: $hover-blanche;
+                    }
+                }
+            }
+
+            .question{
+                margin: 20px 0;
+                text-align: center;
+                color: var(--couleurText);
+
+                a{
+                    text-decoration: none;
+                    color: $couleur-bleu;
+                    font-weight: 500;
+
+                    &:hover{
+                        color: $couleur-bleu;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    /*------------ GROUPE IMAGE -------------*/
+    .group-image{
+        width: 50%;
+        height: 700px;
+        background: url("../images/login-img.jpg");
+        background-size: cover;
+        background-position: center;
+
+        .overlay-image{
+            width: 100%;
+            height: 700px;
+            background: rgba(2,2,2,0.2)
+        }
+    }
+
+}
